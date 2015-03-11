@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['NGO', 'Households'],
+          ['CESVI', 1805],
+          ['Concern', 1149],
+          ['NRC', 1494],
+          ['Save the Children', 1841]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'BRiCS Partner Coverage',
+            subtitle: 'Housesholds surveyed by BRiCS Partners',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="barchart_material" style="width: 900px; height: 300px;"></div>
+  </body>
+</html>

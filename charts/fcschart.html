@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['District', 'Poor','Borderline','Acceptable'],
+          ['Afgooye', 0.50,  0.33,  0.17],
+          ['Qoryooley', 0.89,  0.02,  0.09],
+          ['Baydhaba',  0.33,  0.05,  0.62],
+          ['Belet Xaawo', 0.09,  0.00,  0.91],
+          ['Belet Weyne', 0.42,  0.17,  0.42],
+          ['Doolow',  1.00,  0.00, 0.00],
+          ['Ceel Waaq', 0.00,  0.13,  0.87],
+          ['Gaalkacyo', 0.65,  0.27,  0.08],
+          ['Banadir', 0.63,  0.00,  0.38],
+          ['Hobyo', 0.67,  0.25,  0.08],
+          ['Afgooye', 0.50,  0.32,  0.18],
+          ['Mogadishu', 0.57,  0.21,  0.21],
+          ['Luuq',  0.41,  0.07,  0.52]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Food Consumption Score',
+            subtitle: 'Households Averages by District (Percent)',
+            isStacked: true
+          },
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="barchart_material" style="width: 1000px; height: 300px;"></div>
+  </body>
+</html>
+
